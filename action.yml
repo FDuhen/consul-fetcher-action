@@ -1,0 +1,20 @@
+# action.yml
+name: "Consul Fetcher"
+author: "FDuhen"
+description: "A Github Action that sets environment variables retrieved from Consul"
+branding:
+  icon: "database"
+  color: "red"
+inputs:
+  url:
+    description: "The URL for Consul"
+    required: true
+  token:
+    description: "The TOKEN for Consul"
+    required: true
+  path:
+    description: "The path where you want retrieve all keys/values from Consul. Default is /"
+    required: false
+runs:
+  using: 'node12'
+  main: 'index.js'

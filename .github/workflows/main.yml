@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  consul_fetcher_job:
+    runs-on: ubuntu-latest
+    name: Example showcasing the action
+    steps:
+    - name: Retrieving kvs from Consul
+      id: consulfetcher
+      uses: fduhen/consul-fetcher-action@v1
+      with:
+        url: 'https://consul-client.consul.cloud'
+        token: 'mySecuredToken'
+        path: 'ci'

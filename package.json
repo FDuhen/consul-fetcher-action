@@ -1,0 +1,25 @@
+{
+  "name": "consul-fetcher-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FDuhen/consul-fetcher-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FDuhen/consul-fetcher-action/issues"
+  },
+  "homepage": "https://github.com/FDuhen/consul-fetcher-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.7",
+    "@actions/github": "^4.0.0",
+    "request": "^2.88.2"
+  }
+}
