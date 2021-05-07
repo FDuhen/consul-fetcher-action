@@ -16,17 +16,18 @@ This action retrieves key/values from a Consul and sets it as environment variab
 
 ### `path`
 
-**Optional** The path where you want retrieve all keys/values from Consul. Default `"/"`.
+**Required** The path where you want retrieve all your keys/values from Consul. Could be the path to a folder or the complete path to a single key.
 
 
 ## Example usage
 
+```
 uses: fduhen/consul-fetcher-action@v1
 with:
   url: 'https://consul-url.com'
   token: 'myGeneratedTokenFromConsul'
   path: 'CI'
-
+```
 
 ## TODO
 	* [ ] Code cleanup
