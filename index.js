@@ -1,6 +1,7 @@
 'use strict';
 
 const core = require('@actions/core');
+const command = require('@actions/core/lib/command');
 const github = require('@actions/github');
 const request = require('request');
 
@@ -16,7 +17,6 @@ try {
 }
 
 function fetchKeys(keysPath, url, token) {
-	const i = 1/0;
 	request(`${url}/v1/kv/${keysPath}?keys&separator=""&token=${token}`, function (error, response, body) {
 		if (error != null) { //TODO Manage statusCodes
 			core.setFailed(error);	
@@ -43,8 +43,11 @@ function fetchValueForKey(key, url, token) {
 		keyDetail.forEach((singleKey) => {
 			const key = singleKey.Key.replace(/(.*)\//,"");
 			const value = Buffer.from(singleKey.Value, 'base64').toString('utf-8');
-
-			console.log(`${key} ${value}`); 
+			for (const line of value.replace(/\r/g, '').split('\n')) {
+				if (line.length > 0) {
+					command.issue('add-mask', line);
+				}
+			}
 			core.exportVariable(key, value);
 		});
 	});
