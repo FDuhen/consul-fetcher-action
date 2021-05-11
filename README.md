@@ -22,7 +22,7 @@ This action retrieves key/values from a Consul and sets it as environment variab
 ## Example usage
 
 ```
-uses: fduhen/consul-fetcher-action@v1
+uses: fduhen/consul-fetcher-action@v1.1
 with:
   url: 'https://consul-url.com'
   token: 'myGeneratedTokenFromConsul'
@@ -33,3 +33,7 @@ with:
 	* [ ] Code cleanup
 	* [ ] Correctly managing async functions
 	* [ ] Managing status code errors
+
+## Security
+The env vars which are created after reading the values from Consul are automatically masked in order to prevent any leak of sensitive datas.  
+**Note that it only obscurs the values from the logs.**
